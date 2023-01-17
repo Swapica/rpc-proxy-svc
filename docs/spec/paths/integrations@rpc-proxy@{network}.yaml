@@ -1,0 +1,49 @@
+parameters:
+  - name: network
+    in: path
+    description: Network unique name
+    required: true
+    example: "sepolia"
+    schema:
+      type: string
+
+post:
+  tags:
+    - Proxy
+  summary: RPC call
+  operationId: rpcCall
+  description: Call RPC in the typical way - proxy will handle endpoints and API keys
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          format: json.RawMessage
+          description: Common RPC request body
+  responses:
+    '200':
+      description: RPC call response
+      content:
+        application/json:
+          schema:
+            type: object
+            format: json.RawMessage
+            description: Common RPC response
+    '400':
+      description: Request was invalid in some way
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/Errors'
+    '404':
+      description: No chain found by the given `network`
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/Errors'
+    '500':
+      description: Internal error
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/Errors'

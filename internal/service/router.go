@@ -16,8 +16,8 @@ func (s *service) router() chi.Router {
 			handlers.CtxLog(s.log),
 		),
 	)
-	r.Route("/integrations/rpc-proxy-svc", func(r chi.Router) {
-		// configure endpoints here
+	r.Route("/integrations/rpc-proxy", func(r chi.Router) {
+		r.Post("/{network}", handlers.RPC)
 	})
 
 	return r

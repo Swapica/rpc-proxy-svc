@@ -50,8 +50,9 @@ function parseArgs {
 
 function generate {
     (cd docs && npm run build)
-    docker run -v "${OPENAPI_DIR}":/openapi -v "${GENERATED}":/generated "${GENERATOR_IMAGE}" generate -pkg "${PACKAGE_NAME}" --raw-formats-as-types
-    goimports -w ${GENERATED}
+    echo "No need to generate Go API models. As soon as it's needed, modify the generate.sh to run the full generation."
+#    docker run -v "${OPENAPI_DIR}":/openapi -v "${GENERATED}":/generated "${GENERATOR_IMAGE}" generate -pkg "${PACKAGE_NAME}" --raw-formats-as-types
+#    goimports -w ${GENERATED}
 }
 
 parseArgs "$@"
