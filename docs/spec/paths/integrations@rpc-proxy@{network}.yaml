@@ -22,28 +22,28 @@ post:
           description: Common RPC request body
   responses:
     '200':
-      description: RPC call response
+      description: Success
       content:
         application/json:
           schema:
             type: object
-            format: json.RawMessage
             description: Common RPC response
-    '400':
+    '4XX':
       description: Request was invalid in some way
       content:
-        application/vnd.api+json:
+        application/json:
           schema:
-            $ref: '#/components/schemas/Errors'
+            type: object
+            example: invalid project id
     '404':
       description: No chain found by the given `network`
       content:
-        application/vnd.api+json:
+        application/json:
           schema:
             $ref: '#/components/schemas/Errors'
-    '500':
+    '5XX':
       description: Internal error
       content:
-        application/vnd.api+json:
+        application/json:
           schema:
             $ref: '#/components/schemas/Errors'

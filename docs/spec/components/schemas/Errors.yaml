@@ -14,22 +14,15 @@ properties:
       properties:
         title:
           type: string
-          description: 'Title is a short, human-readable summary of the problem'
+          description: Title is a short, human-readable summary of the problem
           example: Bad Request
         detail:
           type: string
           description: >-
             Detail is a human-readable explanation specific to this occurrence
             of the problem
-          example: 'Request body was expected'
+          example: Request body was expected
         status:
           type: integer
           description: Status is the HTTP status code applicable to this problem
           example: 400
-          enum:
-            - 400
-            - 401
-            - 403
-            - 404
-            - 409
-            - 500
