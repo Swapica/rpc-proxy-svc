@@ -11,6 +11,8 @@ type Config interface {
 	comfig.Logger
 	types.Copuser
 	comfig.Listenerer
+
+	Networks() Networks
 }
 
 type config struct {
@@ -18,6 +20,8 @@ type config struct {
 	types.Copuser
 	comfig.Listenerer
 	getter kv.Getter
+
+	networksOnce comfig.Once
 }
 
 func New(getter kv.Getter) Config {

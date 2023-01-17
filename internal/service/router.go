@@ -14,6 +14,7 @@ func (s *service) router() chi.Router {
 		ape.LoganMiddleware(s.log),
 		ape.CtxMiddleware(
 			handlers.CtxLog(s.log),
+			handlers.CtxNetworks(s.cfg.Networks()),
 		),
 	)
 	r.Route("/integrations/rpc-proxy", func(r chi.Router) {
