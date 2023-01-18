@@ -1,0 +1,13 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: rpc-proxy-svc
+  description: |
+    Proxy for front-end to make Ethereum RPC requests with API keys.
+    
+    See [Ethereum docs](https://ethereum.org/en/developers/docs/apis/json-rpc) to get info
+    about **JSON RPC** request and response schemas. Usually **JSON:API** error responses come
+    from the proxy, any other come from RPC providers.
+servers:
+  - url: 'https://api.demo.tokend.io'
+    description: TokenD Developer Environment

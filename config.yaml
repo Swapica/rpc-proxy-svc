@@ -1,0 +1,18 @@
+log:
+  level: debug
+  disable_sentry: true
+
+listener:
+  addr: :8000
+
+networks:
+  mainnet: "https://mainnet.infura.io/v3/YOUR_API_KEY"
+  goerli: "https://goerli.infura.io/v3/YOUR_API_KEY"
+  sepolia: "https://sepolia.infura.io/v3/YOUR_API_KEY"
+
+cop:
+  disabled: true
+  endpoint: "http://cop"
+  upstream: "http://rpc-proxy-svc"
+  service_name: rpc-proxy-svc
+  service_port: 80
